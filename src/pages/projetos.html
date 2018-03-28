@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <script src="../scripts/projeto.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function initialize() {            
+            if (typeof (Storage) !== "undefined") {
+                localStorage.setItem("lastname", "Smith");
+                document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+            }
+
+        }
+    </script>
+
 </head>
-<body>
-    <a> PROJETOS </a>
+
+<body onload="initialize()">
+    <div id="result"></div>
 </body>
+
 </html>

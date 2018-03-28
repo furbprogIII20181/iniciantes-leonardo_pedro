@@ -1,0 +1,104 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: lightgray;
+}
+#header {
+    height: 125px;
+    width: 100%;
+
+}
+header {
+    padding: 20px;
+}
+
+.ldttLogo {
+    float: left;
+}
+
+.furbLogo {
+    float: right;
+    height: 100px;
+}
+
+.menu {
+    height: 125px;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 30px;
+    font-family: Arial;
+}
+
+nav ul li {
+    display: inline;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: gray;
+    position: center bottom;
+    padding: 12px;
+}
+
+nav ul span {
+    color: blue;
+    font-size: larger;
+}
+
+.pageBar {
+    height: 100px;
+    vertical-align: middle;    
+    text-align: center;
+    font-family: Arial;
+    text-transform: uppercase;
+    background-color: royalblue;
+    color: lightgray;
+    font-size: larger;
+}
+.pageBar h1 {
+    padding: 25px;
+    font-weight: bold;
+}
+
+#mainImage {
+    height: 600px;
+    width: 100%;
+    background-color: blue;
+    padding: 20px;
+}
+
+#mainImage h1 {
+    color: lightgray;
+    font-family: Arial;
+    vertical-align: middle;
+}
+
+.contact {
+    padding: 20px;
+    color: blue;
+    font-family: Arial;
+}
+
+.contact p {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.contact form {
+    float: left;
+    display: block;
+}
+
+.contact map {
+    float: right;
+    width: 45%;
+    height: 300px;
+    color: blue;
+}
+
+#mapAddress div  {
+    float: right;
+    color: blue;
+    position: relative;
+}
