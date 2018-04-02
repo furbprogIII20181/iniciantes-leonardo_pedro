@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: lightgray;
+    background-color: #C0C2CE;
 }
 #header {
     height: 125px;
@@ -42,7 +42,7 @@ nav ul li {
 }
 
 nav ul span {
-    color: blue;
+    color: #1d5377;
     font-size: larger;
 }
 
@@ -50,11 +50,12 @@ nav ul span {
     height: 100px;
     vertical-align: middle;    
     text-align: center;
-    font-family: Arial;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-transform: uppercase;
-    background-color: royalblue;
-    color: lightgray;
-    font-size: larger;
+    background-color: #1d5377;
+    color: #C0C2CE;
+    font-size: 50px;
+    padding: 1%;
 }
 .pageBar h1 {
     padding: 25px;
@@ -64,19 +65,19 @@ nav ul span {
 #mainImage {
     height: 600px;
     width: 100%;
-    background-color: blue;
+    background-color: #1d5377;
     padding: 20px;
 }
 
 #mainImage h1 {
-    color: lightgray;
+    color: #C0C2CE;
     font-family: Arial;
     vertical-align: middle;
 }
 
 .contact {
     padding: 20px;
-    color: blue;
+    color: #1d5377;
     font-family: Arial;
 }
 
@@ -94,11 +95,11 @@ nav ul span {
     float: right;
     width: 45%;
     height: 300px;
-    color: blue;
+    color: #1d5377;
 }
 
 #mapAddress div  {
     float: right;
-    color: blue;
+    color: #1d5377;
     position: relative;
 }

@@ -1,7 +1,11 @@
-img {
-    border-color: #000000;
+#bordado {
+    border-color: #1d5377;
     border-style: solid;
-    border: 100px;
+    border-radius: 0px;
+    border-width: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 h1{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -10,9 +14,36 @@ h1{
     text-align: center;
 }
 
+body {
+    background-color: #C0C2CE;
+}
 
-.header{
+#Titulo{
     background-color:#1d5377;
     padding: 2%;
     margin-bottom: 5%;
 }
+
+p{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+ul{
+    margin-left: 20%;
+    padding-bottom: 5%;
+}
+#SubTitulo {
+    margin-right: 15%;
+    height: 70px;
+    width: 370px;
+    font-size: 35px;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+ #icone{
+      vertical-align: middle;
+      margin-left: 15%;
+      margin-right: 0;
+  }
