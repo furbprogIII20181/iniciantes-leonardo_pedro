@@ -3,9 +3,12 @@ body {margin: 0;}
 .topnav {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 2%;
     overflow: hidden;
     background-color:#D4D6D7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .topnav li {float: left;}
@@ -14,8 +17,9 @@ ul.topnav li a {
     display: block;
     color: black;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 16px;
     text-decoration: none;  
+   
 }
 
 .topnav li a:hover:not(.active) {background-color: #C0C2CE}
@@ -27,28 +31,31 @@ ul.topnav li a {
 @media screen and (max-width: 600px){
     ul.topnav li.right, 
     ul.topnav li {float: none;}
-    li:last-child{ visibility: hidden }
-    li:first-child {margin: 0 20%}
+    #FURB{ visibility: hidden }
+    #LDTT {margin: 0 20%}
 }
 
 .list-item {
-    float: left;
+    float: right;
     font-size: 15px;
-    border-right: 1px solid rgb(0, 0, 0);
+    border-right: 1px solid black;
     padding-left: 0.3%;
     padding-right: 0.3%;
     vertical-align: center;
-        
+    margin: 0px;
     
 }
-
-
-.list-item:last-child {
-    border-right: none;        
-    position:absolute;
+#LDTT{
+    float: left;
+    position: absolute;
+    left: 0;
+}
+#FURB {
+    float: right;
+    position: absolute;
     right: 0;
 }
 
-.list-item:first-child{
-    border-right: none;    
+.list-item:last-child{
+    border-right: 1px solid blue;
 }

@@ -14,10 +14,11 @@
 <div class="contact">
     <p>Alguma dúvida ou sugestão? Preencha o formulário abaixo!</p>
     <form>
-        <input id="name" class="w3-input w3-border w3-round-large" type="text" name="nome" placeholder="Nome *" size="80"><br>
-        <input id="email" class="w3-input w3-border w3-round-large" type="email" name="email" placeholder="Email *"><br>
-        <input id="subject" class="w3-input w3-border w3-round-large" type="text" name="subject" placeholder="Assunto"><br>
-        <textarea id="message" class="w3-input w3-border w3-round-large" name="massage" placeholder="Mensagem" rows="4"></textarea>
+        <input id="name" class="w3-input w3-border w3-round-large" type="text" name="nome" placeholder="Nome *" size="80" required minlength="1"><br>
+        <input id="email" class="w3-input w3-border w3-round-large" type="email" name="email" placeholder="Email *"required pattern="[^ @]*@[^ @]*"><br>
+        <input id="subject" class="w3-input w3-border w3-round-large" type="text" name="subject" placeholder="Assunto" required minlength="1"><br>
+        <textarea id="message" class="w3-input w3-border w3-round-large" name="massage" placeholder="Mensagem" rows="4" required minlength="1"></textarea><br>
+        <button>Enviar</button><br>
     </form>
     
     <div id="mapAddress">
