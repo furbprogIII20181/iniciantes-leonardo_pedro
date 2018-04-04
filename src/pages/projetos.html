@@ -1,30 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
-    <script src="../scripts/projeto.js"> </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projetos</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="../styles/projetos.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-        function initialize() {            
-            if (typeof (Storage) !== "undefined") {
-                localStorage.setItem("lastname", "Smith");
-                document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-            } else {
-                document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+
+        $(function () {
+            var dialog, form,
+                name = $("#name"),
+                email = $("#email"),
+                password = $("#password"),
+                allFields = $([]).add(name).add(email).add(password),
+                tips = $(".validateTips");
+
+            function checkLength(o, n, min, max) {
+                return true;
             }
 
-        }
-    </script>
+            function addUser() {
+                var valid = true;
+                allFields.removeClass("ui-state-error");
 
+                if (valid) {
+                    $("#users tbody").append("<tr>" +
+                        "<td>" + name.val() + "</td>" +
+                        "<td>" + email.val() + "</td>" +
+                        "<td>" + password.val() + "</td>" +
+                        "</tr>");
+
+                    dialog.dialog("close");
+                }
+                return valid;
+            }
+
+            dialog = $("#dialog-form").dialog({
+                autoOpen: false,
+                height: 400,
+                width: 350,
+                modal: true,
+                buttons: {
+                    "Inserir Projeto": addUser,
+                    Cancel: function () {
+                        dialog.dialog("close");
+                    }
+                },
+                close: function () {
+                    form[0].reset();
+                    allFields.removeClass("ui-state-error");
+                }
+            });
+
+            form = dialog.find("form").on("submit", function (event) {
+                event.preventDefault();
+                addUser();
+            });
+
+            $("#create-item").button().on("click", function () {
+                dialog.dialog("open");
+            });
+        });
+    </script>
 </head>
 
-<body onload="initialize()">
-    <div id="result"></div>
+<body>
+
+    <div id="dialog-form" title="Novo relatório">
+        <form>
+            <fieldset>
+                <label for="name">Titulo</label>
+                <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
+                <label for="email">Descrição</label>
+                <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all">
+                <label for="password">Imagem</label>
+                <input type="file" accept=".jpg, .jpeg, .png" name="password" id="password" class="text ui-widget-content ui-corner-all">
+
+                <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+            </fieldset>
+        </form>
+    </div>
+
+    <div id="users-contain" class="ui-widget">
+        <h1>Relatórios</h1>
+        <table id="users" class="ui-widget ui-widget-content">
+            <thead>
+                <tr class="ui-widget-header ">
+                    <th>Titulo</th>
+                    <th>Descrição</th>
+                    <th>Imagem</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <button id="create-item">Novo Projeto</button>
 </body>
 
 </html>
