@@ -1,5 +1,10 @@
 body {margin: 0;}
 
+@font-face {
+    font-family: "OpenSans Regular";
+    src: url("https://fonts.googleapis.com/css?family=Open+Sans");
+    }
+
 .topnav {
     list-style-type: none;
     margin: 0;
@@ -19,7 +24,7 @@ ul.topnav li a {
     text-align: center;
     padding: 10px 16px;
     text-decoration: none;  
-   
+    font-family: 'Open Sans', sans-serif;
 }
 
 .topnav li a:hover:not(.active) {background-color: #C0C2CE}
