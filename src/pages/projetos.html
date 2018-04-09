@@ -12,11 +12,27 @@
     <script>
 
         $(function () {
+
+            var tbProjetos = localStorage.getItem("tbProjetos");//Retrieve the stored data
+            tbProjetos = JSON.parse(tbProjetos); //Converts string to object
+            if (tbProjetos == null) //If there is no data, initialize an empty array
+                tbProjetos = [];
+
+            for(var i in tbProjetos){
+                var p = JSON.parse(tbProjetos[i]);
+
+                $("#users tbody").append("<tr>" +
+                        "<td>" + p.TITULO + "</td>" +
+                        "<td>" + p.DESCRICAO + "</td>" +
+                        "<td>" + p.IMAGEM + "</td>" +
+                        "</tr>");
+            }
+
             var dialog, form,
-                name = $("#name"),
-                email = $("#email"),
-                password = $("#password"),
-                allFields = $([]).add(name).add(email).add(password),
+                titulo = $("#titulo"),
+                descricao = $("#descricao"),
+                imagem = $("#imagem"),
+                allFields = $([]).add(titulo).add(descricao).add(imagem),
                 tips = $(".validateTips");
 
             function checkLength(o, n, min, max) {
@@ -29,13 +45,22 @@
 
                 if (valid) {
                     $("#users tbody").append("<tr>" +
-                        "<td>" + name.val() + "</td>" +
-                        "<td>" + email.val() + "</td>" +
-                        "<td>" + password.val() + "</td>" +
+                        "<td>" + titulo.val() + "</td>" +
+                        "<td>" + descricao.val() + "</td>" +
+                        "<td>" + imagem.val() + "</td>" +
                         "</tr>");
-
-                    dialog.dialog("close");
                 }
+                
+                var projeto = JSON.stringify({
+                    TITULO: titulo.val(),
+                    IMAGEM: imagem.val(),
+                    DESCRICAO: descricao.val()
+                });
+                
+                tbProjetos.push(projeto);
+                localStorage.setItem("tbProjetos", JSON.stringify(tbProjetos));
+                console.log(localStorage.getItem("tbProjetos"));
+                dialog.dialog("close");
                 return valid;
             }
 
@@ -64,22 +89,27 @@
             $("#create-item").button().on("click", function () {
                 dialog.dialog("open");
             });
+
+            $("#clear").button().on("click", function () {
+                tbProjetos = [];
+                localStorage.setItem("tbProjetos", JSON.stringify(tbProjetos));
+                window.location.reload(false);
+            });
         });
     </script>
 </head>
 
-<body>
+<body >
 
     <div id="dialog-form" title="Novo relatório">
         <form>
             <fieldset>
                 <label for="name">Titulo</label>
-                <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
+                <input type="text" name="titulo" id="titulo" class="text ui-widget-content ui-corner-all">
                 <label for="email">Descrição</label>
-                <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all">
-                <label for="password">Imagem</label>
-                <input type="file" accept=".jpg, .jpeg, .png" name="password" id="password" class="text ui-widget-content ui-corner-all">
-
+                <input type="text" name="descricao" id="descricao" class="text ui-widget-content ui-corner-all">
+                <label for="imagem">Imagem</label>
+                <input type="file" accept=".jpg, .jpeg, .png" name="imagem" id="imagem" class="text ui-widget-content ui-corner-all">
                 <!-- Allow form submission with keyboard without duplicating the dialog button -->
                 <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
             </fieldset>
@@ -87,7 +117,7 @@
     </div>
 
     <div id="users-contain" class="ui-widget">
-        <h1>Relatórios</h1>
+        <h1>Projetos</h1>
         <table id="users" class="ui-widget ui-widget-content">
             <thead>
                 <tr class="ui-widget-header ">
@@ -100,6 +130,7 @@
             </tbody>
         </table>
     </div>
+    <button id="clear"> Clear </button>
     <button id="create-item">Novo Projeto</button>
 </body>
 
