@@ -21,13 +21,19 @@
             for (var i in tbProjetos) {
                 var p = JSON.parse(tbProjetos[i]);
 
-                var img = new Image();
-                img.src = p.IMAGEM;
-                $("#users tbody").append("<tr>" +
-                    "<td>" + p.TITULO + "</td>" +
-                    "<td>" + p.DESCRICAO + "</td>" +
-                    "<td><img src=\"" + p.IMAGEM + "\"/></td>" +
-                    "</tr>");
+                var ul = document.getElementById("users");
+
+                var titulo = document.createElement("li");
+                titulo.appendChild(document.createTextNode(p.TITULO));
+                ul.appendChild(titulo);
+
+                var desc = document.createElement("li");
+                desc.appendChild(document.createTextNode(p.DESCRICAO));
+                ul.appendChild(desc);
+
+                var img = document.createElement("li");
+                img.appendChild(document.createTextNode(p.IMAGEM));
+                ul.appendChild(img);
             }
 
             var dialog, form,
@@ -64,14 +70,6 @@
                 var valid = true;
                 allFields.removeClass("ui-state-error");
 
-                if (valid) {
-                    $("#users tbody").append("<tr>" +
-                        "<td>" + titulo.val() + "</td>" +
-                        "<td>" + descricao.val() + "</td>" +
-                        "<td>" + localStorage.getItem("lastImage") + "</td>" +
-                        "</tr>");
-                }
-
                 var projeto = JSON.stringify({
                     TITULO: titulo.val(),
                     IMAGEM: localStorage.getItem("lastImage"),
@@ -81,7 +79,7 @@
                 tbProjetos.push(projeto);
                 localStorage.setItem("tbProjetos", JSON.stringify(tbProjetos));
                 console.log(localStorage.getItem("tbProjetos"));
-                
+
                 dialog.dialog("close");
                 window.location.reload(false);
                 return valid;
@@ -146,17 +144,12 @@
 
     <div id="users-contain" class="ui-widget">
         <h1>Projetos</h1>
-        <table id="users" class="ui-widget ui-widget-content">
-            <thead>
-                <tr class="ui-widget-header ">
-                    <th>Titulo</th>
-                    <th>Descrição</th>
-                    <th>Imagem</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+
+
+        <ul style="list-style-type:none" id="users">
+
+        </ul>
+
     </div>
     <button id="clear"> Clear </button>
     <button id="create-item">Novo Projeto</button>
