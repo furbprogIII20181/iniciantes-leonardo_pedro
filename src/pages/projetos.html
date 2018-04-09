@@ -31,9 +31,14 @@
                 desc.appendChild(document.createTextNode(p.DESCRICAO));
                 ul.appendChild(desc);
 
-                var img = document.createElement("li");
-                img.appendChild(document.createTextNode(p.IMAGEM));
-                ul.appendChild(img);
+                var oImg = document.createElement("img");
+                oImg.setAttribute('src', p.IMAGEM);
+                oImg.setAttribute('height', '300px');
+                oImg.setAttribute('width', '300px');
+                ul.appendChild(oImg);
+
+                var separator = document.createElement("hr");
+                ul.appendChild(separator);
             }
 
             var dialog, form,
