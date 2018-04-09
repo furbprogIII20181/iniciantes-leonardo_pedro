@@ -18,14 +18,16 @@
             if (tbProjetos == null) //If there is no data, initialize an empty array
                 tbProjetos = [];
 
-            for(var i in tbProjetos){
+            for (var i in tbProjetos) {
                 var p = JSON.parse(tbProjetos[i]);
 
+                var img = new Image();
+                img.src = p.IMAGEM;
                 $("#users tbody").append("<tr>" +
-                        "<td>" + p.TITULO + "</td>" +
-                        "<td>" + p.DESCRICAO + "</td>" +
-                        "<td>" + p.IMAGEM + "</td>" +
-                        "</tr>");
+                    "<td>" + p.TITULO + "</td>" +
+                    "<td>" + p.DESCRICAO + "</td>" +
+                    "<td><img src=\"" + p.IMAGEM + "\"/></td>" +
+                    "</tr>");
             }
 
             var dialog, form,
@@ -39,7 +41,26 @@
                 return true;
             }
 
+            function readURL(input) {
+
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        localStorage.setItem("lastImage", e.target.result)
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+
             function addUser() {
+
+                //             toDataUrl(imagem.val(), function(myBase64) {
+                // console.log(myBase64); // myBase64 is the base64 string
+                //             });
+
                 var valid = true;
                 allFields.removeClass("ui-state-error");
 
@@ -47,20 +68,22 @@
                     $("#users tbody").append("<tr>" +
                         "<td>" + titulo.val() + "</td>" +
                         "<td>" + descricao.val() + "</td>" +
-                        "<td>" + imagem.val() + "</td>" +
+                        "<td>" + localStorage.getItem("lastImage") + "</td>" +
                         "</tr>");
                 }
-                
+
                 var projeto = JSON.stringify({
                     TITULO: titulo.val(),
-                    IMAGEM: imagem.val(),
+                    IMAGEM: localStorage.getItem("lastImage"),
                     DESCRICAO: descricao.val()
                 });
-                
+
                 tbProjetos.push(projeto);
                 localStorage.setItem("tbProjetos", JSON.stringify(tbProjetos));
                 console.log(localStorage.getItem("tbProjetos"));
+                
                 dialog.dialog("close");
+                window.location.reload(false);
                 return valid;
             }
 
@@ -95,11 +118,16 @@
                 localStorage.setItem("tbProjetos", JSON.stringify(tbProjetos));
                 window.location.reload(false);
             });
+
+            $("#imagem").change(function () {
+                readURL(this);
+            })
+
         });
     </script>
 </head>
 
-<body >
+<body>
 
     <div id="dialog-form" title="Novo relatório">
         <form>
