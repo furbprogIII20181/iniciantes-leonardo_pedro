@@ -20,7 +20,7 @@
             for (var i in tbProjetos) {
                 var p = JSON.parse(tbProjetos[i]);
 
-                var ul = document.getElementById("users");
+                var ul = document.getElementById("mainList");
                 var titulo = document.createElement("li");
                 titulo.appendChild(document.createTextNode(p.TITULO));
                 ul.appendChild(titulo);
@@ -50,6 +50,7 @@
                 return true;
             }
 
+            //Persiste a imagem em base64
             function readURL(input) {
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
@@ -71,7 +72,7 @@
                     DESCRICAO: descricao.val()
                 });
 
-                localStorage.removeItem("lastImage")
+                localStorage.removeItem("lastImage");
 
                 tbProjetos.push(projeto);
                 localStorage.setItem("tbProjetos", JSON.stringify(tbProjetos));
@@ -91,6 +92,7 @@
                     "Inserir Projeto": addProjeto,
                     Cancel: function () {
                         dialog.dialog("close");
+                        localStorage.removeItem("lastImage")
                     }
                 },
                 close: function () {
@@ -122,16 +124,15 @@
 </head>
 
 <body>
-
     <div id="dialog-form" title="Novo projeto">
         <form>
             <fieldset>
                 <label for="name">Titulo</label>
-                <input type="text" name="titulo" id="titulo" class="text ui-widget-content ui-corner-all">
+                <input type="text" name="titulo" id="titulo" class="text ui-widget-content ui-corner-all" required>
                 <label for="email">Descrição</label>
-                <input type="text" name="descricao" id="descricao" class="text ui-widget-content ui-corner-all">
+                <input type="text" name="descricao" id="descricao" class="text ui-widget-content ui-corner-all" required> 
                 <label for="imagem">Imagem</label>
-                <input type="file" accept=".jpg, .jpeg, .png" name="imagem" id="imagem" class="text ui-widget-content ui-corner-all">
+                <input type="file" accept=".jpg, .jpeg, .png" name="imagem" id="imagem" class="text ui-widget-content ui-corner-all" required>
                 <!-- Allow form submission with keyboard without duplicating the dialog button -->
                 <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
             </fieldset>
@@ -140,7 +141,7 @@
 
     <div id="users-contain" class="ui-widget">
         <h1>Projetos</h1>
-        <ul style="list-style-type:none" id="users">
+        <ul style="list-style-type:none" id="mainList">
         </ul>
     </div>
     <button id="clear"> Clear </button>
