@@ -10,19 +10,17 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-
         $(function () {
 
-            var tbProjetos = localStorage.getItem("tbProjetos");//Retrieve the stored data
-            tbProjetos = JSON.parse(tbProjetos); //Converts string to object
-            if (tbProjetos == null) //If there is no data, initialize an empty array
+            var tbProjetos = localStorage.getItem("tbProjetos");
+            tbProjetos = JSON.parse(tbProjetos);
+            if (tbProjetos == null)
                 tbProjetos = [];
 
             for (var i in tbProjetos) {
                 var p = JSON.parse(tbProjetos[i]);
 
                 var ul = document.getElementById("users");
-
                 var titulo = document.createElement("li");
                 titulo.appendChild(document.createTextNode(p.TITULO));
                 ul.appendChild(titulo);
@@ -53,24 +51,16 @@
             }
 
             function readURL(input) {
-
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
-
                     reader.onload = function (e) {
                         localStorage.setItem("lastImage", e.target.result)
                     }
-
                     reader.readAsDataURL(input.files[0]);
                 }
             }
 
-
-            function addUser() {
-
-                //             toDataUrl(imagem.val(), function(myBase64) {
-                // console.log(myBase64); // myBase64 is the base64 string
-                //             });
+            function addProjeto() {
 
                 var valid = true;
                 allFields.removeClass("ui-state-error");
@@ -80,6 +70,8 @@
                     IMAGEM: localStorage.getItem("lastImage"),
                     DESCRICAO: descricao.val()
                 });
+
+                localStorage.removeItem("lastImage")
 
                 tbProjetos.push(projeto);
                 localStorage.setItem("tbProjetos", JSON.stringify(tbProjetos));
@@ -96,7 +88,7 @@
                 width: 350,
                 modal: true,
                 buttons: {
-                    "Inserir Projeto": addUser,
+                    "Inserir Projeto": addProjeto,
                     Cancel: function () {
                         dialog.dialog("close");
                     }
@@ -109,7 +101,7 @@
 
             form = dialog.find("form").on("submit", function (event) {
                 event.preventDefault();
-                addUser();
+                addProjeto();
             });
 
             $("#create-item").button().on("click", function () {
@@ -125,14 +117,13 @@
             $("#imagem").change(function () {
                 readURL(this);
             })
-
         });
     </script>
 </head>
 
 <body>
 
-    <div id="dialog-form" title="Novo relatório">
+    <div id="dialog-form" title="Novo projeto">
         <form>
             <fieldset>
                 <label for="name">Titulo</label>
@@ -149,12 +140,8 @@
 
     <div id="users-contain" class="ui-widget">
         <h1>Projetos</h1>
-
-
         <ul style="list-style-type:none" id="users">
-
         </ul>
-
     </div>
     <button id="clear"> Clear </button>
     <button id="create-item">Novo Projeto</button>
