@@ -1,11 +1,6 @@
 <?php
 //Variáveis
 
-$nome = $_POST['nome'];
-$email = $_POST['email'];
-$mensagem = $_POST['msg'];
-$data_envio = date('d/m/Y');
-$hora_envio = date('H:i:s');
 
 // emails para quem será enviado o formulário
 $emailenviar = "leofronza@furb.br";
@@ -18,13 +13,12 @@ $headers  = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'From: $nome <$email>';
 //$headers .= "Bcc: $EmailPadrao\r\n";
 
-$enviaremail = mail($destino, $assunto, $arquivo, $headers);
-if($enviaremail){
+ini_set();
+
+$enviaremail = mail($destino, $assunto, "OI" , $headers);
 $mgm = "E-MAIL ENVIADO COM SUCESSO! <br> O link será enviado para o e-mail fornecido no formulário";
 echo " <meta http-equiv='refresh' content='10;URL=contato.php'>";
-} else {
 $mgm = "ERRO AO ENVIAR E-MAIL!";
 echo "";
 echo $mgm;
-}
 ?>

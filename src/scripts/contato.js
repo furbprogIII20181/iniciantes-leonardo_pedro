@@ -6,7 +6,6 @@ function enviaEmail(){
                console.log(this.responseText);
             }
         };
-        xmlhttp.open("GET", "email.php", true);
+        xmlhttp.open("GET", "../scripts/email.php", true);
         xmlhttp.send();
     }
-}
