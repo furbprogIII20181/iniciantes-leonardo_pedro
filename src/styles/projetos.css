@@ -25,19 +25,6 @@ div#users-contain {
     margin: 20px 0;
 }
 
-div#users-contain table {
-    margin: 1em 0;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-div#users-contain table td,
-div#users-contain table th {
-    border: 1px solid #eee;
-    padding: .6em 10px;
-    text-align: left;
-}
-
 .ui-dialog .ui-state-error {
     padding: .3em;
 }
@@ -50,7 +37,10 @@ div#users-contain table th {
 ul {
     text-align: center;
     padding: 0;
-  }
-  li {
+    vertical-align: middle;
+    position: relative;
+}
+
+li {
     display: inline-block;
-  }
+}
