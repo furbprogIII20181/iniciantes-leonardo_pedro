@@ -1,64 +1,38 @@
-<!DOCTYPE html>
-<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../styles/page-styles.css">
 
-<link rel="stylesheet" type="text/css" href="../styles/styles.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
+<script>
+    $(function(){
+        $("#header").load('header.html');
+    })
+</script>
+<header>
+    <div id="header">
+    </div>
+</header>
 
-<head>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-
-        function initialize(){
-            $('#main').load("../pages/inicio.html");                
-        }
-
-        $(document).ready(function () {
-            $("#list li").click(function () {                   
-                var linkText = "../pages/" + $(this).text().toLowerCase().replace(/ /g,'') + ".html";                
-                $('#main').load(linkText);                
-                return false;                
-            });
-
-        });
-    </script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-    <div>
-        <nav>
-                
-            <ul class="topnav" id="list">
-                    <img src="../imagens/logo_ldtt.png" id="LDTT">
-                <li class="list-item">
-                    <a href="#" id="inicio">Inicio</a>
-                </li>
-                <li class="list-item">
-                    <a>Quem somos</a>
-                </li class="list-item">
-                <li class="list-item">
-                    <a>Marcos regulatorios</a>
-                </li>
-                <li class="list-item">
-                    <a>Projetos</a>
-                </li>
-                <li class="list-item">
-                    <a>Artigos Cientificos</a>
-                </li>
-                <li class="list-item">
-                    <a>Contato</a>
-                </li>
-                <img src="../imagens/logo_furb.png" id="FURB">
-            </ul>
-            
-        </nav>
+<div>
+        <div style="background-color:#1d5377">
+            <h1>Laboratório de Desenvolvimento e Transferência de Tecnologia</h1>
+            <p>O Laboratório de Desenvolvimento e Transferência de Tecnologia do Departamento de Sistemas e Computação da FURB
+                foi criado em 2008 sob coordenação do prof. Dr. Mauro Mattos.</p>
+            <img src="../imagens/painel.png"></img>
+            <img src="../imagens/tela_furbot.png"></img>
+        </div>
     </div>
 
-</head>
+    <center>
+        <img src="../imagens/ldtt2.png" id="bordado"></img>
+    </center>
+    <div>
+            <img src="../imagens/globo.png" id="icone"></img>
+            <span id="SubTitulo">Missão</span>
+    </div>
+    <p>Promover e facilitar a produção, difusão e transferência de tecnologias de informação e comunicação, através da pesquisa
+        científica, inovação tecnológica e geração de conhecimento para a sociedade, contribuindo para a aproximação entre
+        a Universidade e as empresas.</p>
 
-<body onload="initialize()">
-    <div id="main"> OI </div>    
-</body>
-
-</html>
+    </div>

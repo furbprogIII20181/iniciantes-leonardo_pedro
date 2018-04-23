@@ -12,6 +12,8 @@
     <script>
         $(function () {
 
+            $("#header").load("header.html");
+
             var tbProjetos = localStorage.getItem("tbProjetos");
             tbProjetos = JSON.parse(tbProjetos);
             if (tbProjetos == null)
@@ -124,6 +126,10 @@
 </head>
 
 <body>
+    <header>
+        <div id="header">
+        </div>
+    </header>
     <div id="dialog-form" title="Novo projeto">
         <form>
             <fieldset>
