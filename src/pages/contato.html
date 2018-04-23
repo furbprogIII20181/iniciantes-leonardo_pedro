@@ -21,10 +21,10 @@
         debugger;
         console.log("caiu envia email");
         var data = {
-            nome: "filename",
-            email: "meu@email.com",
-            assunto: "this_is_a_dummy_test_string",
-            msg: "Olá mundo"
+            nome: $("#name").val(),
+            email: $("#email").val(),
+            assunto: $("#subject").val(),
+            msg:$("#message").val(),
         };
         $.post("../scripts/email.php", data);
     }
