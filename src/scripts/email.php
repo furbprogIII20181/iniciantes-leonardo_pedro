@@ -16,9 +16,6 @@ $headers  = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'From: '+ $email;
 
 
-
-
-
 $enviaremail = mail($destino, $assunto, $msg , $headers);
 $mgm = "E-MAIL ENVIADO COM SUCESSO! <br> O link será enviado para o e-mail fornecido no formulário";
 echo " <meta http-equiv='refresh' content='10;URL=contato.php'>";

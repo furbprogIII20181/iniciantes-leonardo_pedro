@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="../scripts/contato.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/contato.css">
@@ -18,17 +17,17 @@
 </script>
 
 <script>
-    function passVal(){
+    function enviaEmail(){
+        debugger;
+        console.log("caiu envia email");
         var data = {
             nome: "filename",
             email: "meu@email.com",
             assunto: "this_is_a_dummy_test_string",
             msg: "Olá mundo"
         };
-
         $.post("../scripts/email.php", data);
     }
-    passVal();
    </script>
 <header>
     <div id="header">
