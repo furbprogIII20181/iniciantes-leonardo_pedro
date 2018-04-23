@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <script src="../scripts/contato.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/contato.css">
@@ -17,6 +16,20 @@
         $("#header").load('header.html');
     })
 </script>
+
+<script>
+    function enviaEmail(){
+        debugger;
+        console.log("caiu envia email");
+        var data = {
+            nome: $("#name").val(),
+            email: $("#email").val(),
+            assunto: $("#subject").val(),
+            msg:$("#message").val(),
+        };
+        $.post("../scripts/email.php", data);
+    }
+   </script>
 <header>
     <div id="header">
     </div>
