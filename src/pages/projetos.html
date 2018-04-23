@@ -22,14 +22,18 @@
             for (var i in tbProjetos) {
                 var p = JSON.parse(tbProjetos[i]);
 
+                
                 var ul = document.getElementById("mainList");
-                var titulo = document.createElement("li");
-                titulo.appendChild(document.createTextNode(p.TITULO));
-                ul.appendChild(titulo);
 
-                var desc = document.createElement("li");
-                desc.appendChild(document.createTextNode(p.DESCRICAO));
-                ul.appendChild(desc);
+                var header = document.createElement("H1");
+                header.style.fontSize = "100px";
+                header.style.color = "blue";
+                header.appendChild(document.createTextNode(p.TITULO));
+                ul.appendChild(header);
+
+                var paragraph = document.createElement("P")
+                paragraph.appendChild(document.createTextNode(p.DESCRICAO));
+                ul.appendChild(paragraph);
 
                 var oImg = document.createElement("img");
                 oImg.setAttribute('src', p.IMAGEM);
