@@ -5,6 +5,7 @@ $email = $_POST['email'];
 $assunto = $_POST['assunto'];
 $msg = $_POST['msg'];
 
+$msg = $msg + "Enviado de " + $nome + "<" + $email + ">";
 $emailenviar = "leofronza@furb.br";
 $destino = $emailenviar;
 
