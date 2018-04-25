@@ -7,13 +7,12 @@ $msg = $_POST['msg']. " \n\nEnviado por: ". $nome . ' <'. $email . '>';
 
 if ($nome != null or $email != null){
 
-//$msg = $msg + "Enviado de " + $nome + "<" + $email + ">";
-$emailenviar = "leofronza@furb.br";
-$destino = $emailenviar;
+    $emailenviar = "leofronza@furb.br";
+    $destino = $emailenviar;
 
-$enviaremail = mail($destino, $assunto, $msg);
+    $enviaremail = mail($destino, $assunto, $msg);
 
-echo " <meta http-equiv='refresh' content='1;URL=../pages/contato.html'>";
-
+    echo " <meta http-equiv='refresh' content='1;URL=../pages/contato.html'>";
 }
+
 ?>
