@@ -56,4 +56,9 @@ ul{
       margin-right: 0;
   }
 
-  
+ #imag{
+     position: fixed;
+    vertical-align: middle;
+    margin-right: 0;
+    padding-left: 15%;
+ }
