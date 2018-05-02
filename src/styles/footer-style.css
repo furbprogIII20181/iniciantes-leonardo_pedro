@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+}
+
+@font-face {
+    font-family: "OpenSans Regular";
+    src: url("https://fonts.googleapis.com/css?family=Open+Sans");
+}
+footer{
+    background-color: #a8a8a8;
+    margin-bottom: 0px;
+}
+.bottomnav {
+    list-style-type: none;
+    overflow: hidden;
+    display: flex;
+    padding-top: 2%;
+    margin-left: 12%;
+}
+
+.bottomnav li {
+    float: left;
+}
+
+ul.bottomnav li a {
+    display: block;
+    color: black; 
+    text-decoration: none;
+    size: 5px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.bottomnav li a:hover:not(.active) {
+    background-color:#a8a8a8;
+}
+
+.bottomnav li a.active {
+    background-color:#a8a8a8;
+}
+
+.bottomnav li.right {
+    float: right;    
+}
+.blist-item {
+    float: right;
+    font-size: 15px;
+    border-right: 5px solid white;
+    padding-left: 0.3%;
+    padding-right: 0.3%;    
+
+}
+li:last-child{
+    border-right: none;
+}
+h6{
+    margin-left: 15%;
+    font-family: 'Open Sans', sans-serif;
+    padding-bottom: 2%; 
+}

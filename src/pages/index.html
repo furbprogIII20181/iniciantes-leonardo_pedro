@@ -2,11 +2,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../styles/page-styles.css">
-<title> Projetos </title>
+<title> LDTT - Início </title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
     $(function () {
         $("#header").load('header.html');
+        $("#footer").load('footer.html');
     })
 </script>
 <header>
@@ -17,17 +18,20 @@
 <body>
     <div>
         <div class="container">
-            <img src="../imagens/Imagem index.png" id="imag"></img>
+            
             <div class="idxText">
                 <p>
                     <span id="idxTitle">Laboratório de Desenvolvimento e Transferência de Tecnologia</span>
+                    <img src="../imagens/Imagem index.png" id="imag"></img>
                 </p>
+                
                 <p>
                     <span id="idxText"> O Laboratório de Desenvolvimento e Transferência de Tecnologia do Departamento de Sistemas e Computação
                         da FURB foi criado em 2008 sob coordenação do prof. Dr. Mauro Mattos.</span>
                 </p>
                 <button class="button" onclick="window.location.href='quemsomos.html'">Quem Somos</button>
             </div>
+            
         </div>
 
     </div>
@@ -42,5 +46,7 @@
     <p>Promover e facilitar a produção, difusão e transferência de tecnologias de informação e comunicação, através da pesquisa
         científica, inovação tecnológica e geração de conhecimento para a sociedade, contribuindo para a aproximação entre
         a Universidade e as empresas.</p>
-
+        <footer>
+            <div id="footer"></div>
+        </footer>
 </body>

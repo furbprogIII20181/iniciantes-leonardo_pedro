@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Projetos</title>
+    <title> LDTT - Projetos</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="../styles/page-styles.css">
     <link href="../styles/projetos.css" rel="stylesheet">
@@ -13,7 +13,12 @@
     <script src="../scripts/projetos.js">
     </script>
 </head>
-
+<script>
+    $(function () {
+        $("#header").load('header.html');
+        $("#footer").load('footer.html');
+    })
+</script>
 <body>
     <header>
         <div id="header">
@@ -46,3 +51,6 @@
 </body>
 
 </html>
+<footer>
+    <div id="footer"></div>
+</footer>

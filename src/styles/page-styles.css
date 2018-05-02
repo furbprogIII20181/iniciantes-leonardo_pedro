@@ -2,6 +2,10 @@
     font-family: "OpenSans Regular";
     src: url("https://fonts.googleapis.com/css?family=Open+Sans");
 }
+div{
+    position: relative;
+    width: 100%;
+}
 
 #bordado {
     border-color: #1d5377;
@@ -21,18 +25,22 @@ h1 {
 
 body {
     background-color: #C0C2CE;
+    position: relative;
 }
 
 #Titulo {
     background-color: #1d5377;
     padding: 2%;
     margin-bottom: 5%;
+    width: 100%;
+    position: relative;
 }
 
 p {
     margin-left: 20%;
     margin-right: 20%;
     font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
 }
 
 ul {
@@ -54,7 +62,7 @@ ul {
 #imag {
     float: right;  
     padding-left: 2%;
-    margin-right: 10%;  
+    margin-right: 5%;  
 }
 
 #icone {
@@ -66,6 +74,7 @@ ul {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 30px;
     color: #D4D6D7;
+    
     
 }
 #idxText{
@@ -81,6 +90,7 @@ ul {
     position: relative;
     background-color:#1d5377;
     margin-bottom: 5%;
+    width: 100%;
 }
 
 .container::after {
@@ -102,6 +112,7 @@ ul {
     border-radius: 15px;
     margin-left: 20%;
     margin-right: 0;
+    padding-bottom: 2%;
   }
   
   .button:hover {background-color: #bf6900}
