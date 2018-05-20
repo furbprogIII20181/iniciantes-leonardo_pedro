@@ -1,0 +1,8 @@
+Pelos commits e participação, acredito que a dupla dividiu os trabalhos e conseguiu contribuir um com o outro durante o desenvolvimento do projeto.
+
+Com relação ao HTML e CSS, está conforme o esperado, além de utilizar em sua maioria as tags de HTML semântica, e carregar rodapé e cabeçalho internamente através de outra página.
+Com relação a responsividade também ficou boa.
+
+Referente as funcionalidades, também estão de acordo.
+
+Somente faltou validar os campos do projeto via Javascript.
